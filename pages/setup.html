@@ -1,13 +1,48 @@
-   <!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
-    <link rel="stylesheet" href="../css/main.css"
+    <link rel="stylesheet" href="css/main.css"
     <meta charset="utf-8">  
-    <title>DLsetup</title>
-</head> 
-    
-   <body>
-    <div class="card">
+    <title>DLzone</title>
+   </head>
+
+<body>
+<div class="card">
+  <svg class="card__background">
+    <defs>
+      <mask id="mask-background">
+        <rect width="100%" height="100%" fill="#268ad1" />
+        <svg width="100%" height="45" viewBox="0 0 298 90" preserveAspectRatio="xMidYMin meet">
+          <path d="M0,0H.18A20.09,20.09,0,0,1,18,10.84,148,148,0,0,0,149,90,148,148,0,0,0,280.05,10.84,20.09,20.09,0,0,1,297.82,0H298V-4H0Z" fill="#000" />
+        </svg>
+      </mask>
+
+      <filter id="inset-stroke">
+        <feFlood flood-color="0b5387" result="borderColor" />
+        <feComposite in="borderColor" in2="SourceAlpha" operator="in" result="borderShape" />
+        <feMorphology in="borderShape" operator="erode" radius="5" result="borderShapeIn" />
+        <feMorphology in="borderShape" operator="erode" radius="6" result="borderShapeOut" />
+        <feComposite in="borderShapeIn" in2="borderShapeOut" operator="out" result="borderStroke" />
+        <feComponentTransfer in="borderStroke" result="borderStrokeOpacity">
+          <feFuncA type="linear" slope="0.5" />
+        </feComponentTransfer>
+        <feMerge>
+          <feMergeNode in="SourceGraphic" />
+          <feMergeNode in="borderStrokeOpacity" />
+        </feMerge>
+      </filter>
+    </defs>
+
+    <g filter="url(#inset-stroke)">
+      <rect width="100%" height="100%" rx="20" mask="url(#mask-background)" fill="#fff" />
+    </g>
+  </svg>
+
+  <div class="card__content">
+    <figure class="card__photo">
+      <img class="card__image" src="img/main.jpg" alt="">
+    </figure>
+    <div class="card__text">
         <h1>setup:</h1>
             <p>
              computer
@@ -18,7 +53,8 @@
             </p>
             <p>
                 <a href="../index.html">back to main</a>
-            </p>
-        </div>
-    </body>
-</html>
+            </p> 
+    </div>
+  </div>
+</div>
+</body>
